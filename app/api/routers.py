@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi import APIRouter, HTTPException, Depends, status, Query
 from fastapi.responses import JSONResponse
 from typing import Annotated
 from redis.asyncio import Redis
@@ -40,7 +40,7 @@ async def write_data(data: DataModel,
 
 
 @router.get("/check_data", response_model=ResponseCheckData)
-async def check_data(phone: RequestData,
+async def check_data(phone: Annotated[str, Query(..., pattern=r"^8\d{10}$")],
                      redis: Annotated[Redis, Depends(init_redis_pool)]):
     address = await redis.get(phone)
     if address is None:
