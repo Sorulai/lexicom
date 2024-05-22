@@ -3,8 +3,7 @@ import string
 import psycopg2
 import time
 import os
-from dotenv import load_dotenv
-load_dotenv()
+
 
 conn_params = {
     'host': os.getenv('DB_HOST'),
