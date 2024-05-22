@@ -27,7 +27,7 @@ def python_batch_update(cursor, connection):
 
     connection.commit()
     end_time = time.time()
-    print(f"Python batch update completed in {end_time - start_time} seconds.")
+    print(f"Python batch update завершен за {end_time - start_time} секунд.")
 
 
 if __name__ == "__main__":

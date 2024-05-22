@@ -21,7 +21,7 @@ def create_temp_table(cursor, connection):
         """)
     connection.commit()
     end_time = time.time()
-    print(f"Create index completed in {end_time - start_time} seconds.")
+    print(f"Temp table завершен за {end_time - start_time} секунд.")
 
 
 if __name__ == "__main__":
