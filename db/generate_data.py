@@ -3,6 +3,8 @@ import string
 import psycopg2
 import time
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 conn_params = {
     'host': os.getenv('DB_HOST'),
@@ -79,8 +81,6 @@ full_names_data = []
 short_names_list = tuple(short_names)
 used_names = set()
 
-cursor.execute("ALTER TABLE full_names DISABLE TRIGGER ALL")
-
 for _ in range(num_full_names):
     while True:
         short_name = random.choice(short_names_list)
@@ -95,8 +95,6 @@ for _ in range(num_full_names):
 
 if full_names_data:
     cursor.executemany("INSERT INTO full_names (name, status) VALUES (%s, NULL)", full_names_data)
-
-cursor.execute("ALTER TABLE full_names ENABLE TRIGGER ALL")
 
 connection.commit()
 
