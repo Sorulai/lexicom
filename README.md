@@ -22,8 +22,21 @@
 
 
 1. Создание и наполнение таблиц
-   + `docker-compose run app_db python generate_data.py
-`
+   + Скрипт находится в файле `generate_data.py`
+   + Команда для выполнения - `docker-compose run app_db python generate_data.py`
+   + > Вставка данных в short_names завершена за 61.52 секунд.<br>
+   Вставка данных в full_names завершена за 41.45 секунд.<br>
+   *~ выполнение в докере*
+
+2. Выполнение скрипта с созданием индекса
+    + > Для таблицы `full_names` создается индекс на поле `name`
+    + Скрипт находится в файле `create_index_update.py`
+
+    + Команда для выполнения - `docker-compose run app_db python generate_data.py`
+    + > Create index completed in 9.479147911071777 seconds.
+
+
+
 
 
 

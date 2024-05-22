@@ -15,7 +15,7 @@ def disable_triggers(cursor, connection):
     cursor.execute("ALTER TABLE full_names ENABLE TRIGGER ALL")
     connection.commit()
     end_time = time.time()
-    print(f"Create index completed in {end_time - start_time} seconds.")
+    print(f"Disable triggers завершен за {end_time - start_time} секунд.")
 
 
 if __name__ == "__main__":

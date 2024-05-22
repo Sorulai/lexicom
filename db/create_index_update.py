@@ -14,7 +14,7 @@ def create_indexes(cursor, connection):
         """)
     connection.commit()
     end_time = time.time()
-    print(f"Create index completed in {end_time - start_time} seconds.")
+    print(f"Create index завершен за {end_time - start_time} секунд.")
 
 
 if __name__ == "__main__":
